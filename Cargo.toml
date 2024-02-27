@@ -1,0 +1,21 @@
+[package]
+name = "axum-router"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+dioxus = { git = "https://github.com/DioxusLabs/dioxus.git", features = [
+  "fullstack",
+  "router",
+] }
+axum = { version = "0.7.0", optional = true }
+tokio = { version = "1.16.1", features = ["full"], optional = true }
+serde = { version = "1.0.159", features = ["derive"] }
+
+[features]
+default = []
+server = ["axum", "dioxus/axum"]
+web = ["dioxus/web"]
